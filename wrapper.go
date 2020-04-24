@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io"
 	"io/ioutil"
 	"os"
@@ -14,6 +13,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"gopkg.in/yaml.v2"
 )
 
 const (
@@ -168,8 +169,12 @@ func (w *Wrapper) execSlsCmd(funcDir string, slsCmd ...string) (string, error) {
 }
 
 func (w *Wrapper) DeployStack() error {
+	_, err := w.execCmd([]string{}, w.yamlDirPath, "npm", "i")
+	if err != nil {
+		return err
+	}
 
-	err := w.buildJava("java8")
+	err = w.buildJava("java8")
 	if err != nil {
 		return err
 	}

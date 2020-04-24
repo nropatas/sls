@@ -1,5 +1,5 @@
-module github.com/nuweba/sls
+module github.com/nropatas/sls
 
-go 1.12
+go 1.14
 
-require gopkg.in/yaml.v2 v2.2.2 // indirect
+require gopkg.in/yaml.v2 v2.2.8
