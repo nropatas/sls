@@ -63,7 +63,7 @@ func New(provider string, yamlDirPath string) (*Wrapper, error) {
 		return nil, err
 	}
 
-	suffix := strconv.FormatInt(time.Now().UnixNano(), 10)
+	suffix := strconv.FormatInt(time.Now().Unix(), 10)
 
 	functions := make(map[string]FunctionMeta)
 	for k, v := range stack.Functions {
